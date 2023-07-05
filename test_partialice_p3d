@@ -28,7 +28,7 @@
         sa_vertical_gradient       = 0.0,
 
 
-        ice_cover                  = 'read_from_file',
+        ice_cover                  = 'full',
         use_top_fluxes             = .T.,
         use_surface_fluxes         = .F.,
         constant_flux_layer        = 'top',
