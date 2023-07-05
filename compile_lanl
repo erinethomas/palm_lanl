@@ -2,7 +2,7 @@
 
 use_hdf5="True"
 repo_path=$PWD
-build_path="/path/to/build/directory/"
+build_path="/lustre/scratch5/ethomas/palm/jobs/chicoma-build/"
 compile_debug="False"
 build_flags=""
 
