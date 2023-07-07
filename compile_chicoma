@@ -1,7 +1,7 @@
 #!/bin/bash
 
 repo_path=$PWD
-build_path="/lustre/scratch5/$USER/palm/jobs/test-chicoma-build/"
+build_path="/lustre/scratch5/$USER/palm/jobs/chicoma-build/"
 compile_debug="False"
 build_flags=""
 test_case="test_oceanml"

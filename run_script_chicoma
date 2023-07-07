@@ -23,7 +23,7 @@ run_config="srun"
 #run_config="mpirun"
 openmp_threads=1
 repo_path=$PWD
-exec_path="/lustre/scratch5/$USER/palm/jobs/test-chicoma-build/"
+exec_path="/lustre/scratch5/$USER/palm/jobs/chicoma-build/"
 
 cd $SLURM_SUBMIT_DIR
 export PATH="$repo_path/trunk/SCRIPTS:${PATH}"
