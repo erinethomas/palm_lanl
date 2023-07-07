@@ -18,12 +18,12 @@ do_coupled="False"
 atm_cores=32
 ocn_cores=32
 
-test_case="test_oceanml"
+test_case="test_tidalarctic"
 run_config="srun"
 #run_config="mpirun"
 openmp_threads=1
 repo_path=$PWD
-exec_path="/lustre/scratch5/$USER/palm/jobs/chicoma-build/"
+exec_path="/lustre/scratch5/$USER/palm/jobs/chicoma-tides/"
 
 cd $SLURM_SUBMIT_DIR
 export PATH="$repo_path/trunk/SCRIPTS:${PATH}"

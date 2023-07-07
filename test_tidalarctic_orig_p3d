@@ -1,11 +1,9 @@
 &initialization_parameters
-!        nx = 63, ny = 63, nz=64,
-        nx = 31, ny = 31, nz=32,
+        nx = 63, ny = 63, nz=64,
         dx = 2.5, dy = 2.5, dz = 2.5,
 
         ocean = .T.,
 
-!        initializing_actions = 'by_user',
         initializing_actions = 'set_constant_profiles',
 
         latitude = 75,
@@ -13,7 +11,7 @@
         reference_state            = 'single_value',
 
         rayleigh_damping_factor    = 0.0001,
-        rayleigh_damping_height    = -55,
+        rayleigh_damping_height    = -100,
 
         pt_surface                 = 293.0,
         pt_vertical_gradient       = 1.0,
@@ -21,18 +19,18 @@
         sa_surface                 = 35.0,
         sa_vertical_gradient       = 0.0,
 
-!        ice_cover                  = 'none',
-        use_top_fluxes             = .T.,
+        ice_cover                  = 'none',
+        use_top_fluxes             = .F.,
         use_surface_fluxes         = .F.,
         surface_flux_diags         = .T.,
 
-        top_momentumflux_u         = 0.0,
-        top_momentumflux_v         = 0.0,
+        top_momentumflux_u         = 9999999.9,
+        top_momentumflux_v         = 9999999.9,
 
-        top_heatflux               = 0.0,
+        top_heatflux               = 9999999.9,
         surface_heatflux           = 9999999.9,
 
-        top_salinityflux           = 0.0,
+        top_salinityflux           = 9999999.9,
         bottom_salinityflux        = 9999999.9,
 
         dpdx                       = 0.01,

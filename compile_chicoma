@@ -1,10 +1,10 @@
 #!/bin/bash
 
 repo_path=$PWD
-build_path="/lustre/scratch5/$USER/palm/jobs/chicoma-build/"
+build_path="/lustre/scratch5/$USER/palm/jobs/chicoma-tides/"
 compile_debug="False"
 build_flags=""
-test_case="test_oceanml"
+test_case="test_tidalarctic"
 
 if [[ ! -d $build_path ]]; then
    mkdir -p $build_path
