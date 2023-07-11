@@ -2,8 +2,6 @@
         nx = 31, ny = 31, nz=32,
         dx = 2.5, dy = 2.5, dz = 2.5,
 
-        fft_method = 'temperton-algorithm',
-
         ocean = .T.,
         idealized_diurnal = .F.,
         reference_state = 'single_value',
