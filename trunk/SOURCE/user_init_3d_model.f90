@@ -96,9 +96,9 @@
                      - (6.47e-10)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)           &
                      - (8.74e-13)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)
              ENDIF
-!!!! Canadian Basin WINTER - written by Erin Thomas (ethomas@lanl.gov)!!!!
-!             IF (abs(zu(k)).le.25.0) THEN
-!                pt(k,j,i) = -1.5 + 273.15
+!!!! Canadian Basin - DJF WINTER TEMP PROFILE 75N 221E - Erin Thomas (ethomas@lanl.gov) !!!!
+!             IF (abs(zu(k)).le.27.0) THEN ! winter ML depth + temp
+!                pt(k,j,i) = -1.44 + 273.15
 !             ELSE
 !                pt(k,j,i) = 273.15                                       & 
 !                     - (-6.26)                                           &
@@ -109,9 +109,9 @@
 !                     - (-2.18e-8)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)          &
 !                     - (-3.91e-11)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)
 !             ENDIF
-!!!! Canadian Basin SUMMER - written by Erin Thomas (ethomas@lanl.gov)!!!!
-!             IF (abs(zu(k)).le.25.0) THEN
-!                pt(k,j,i) = -1.5 + 273.15
+!!!! Canadian Basin JJA SUMMER TEMP Profile 75N 221E- Erin Thomas (ethomas@lanl.gov)!!!!
+!             IF (abs(zu(k)).le.38.0) THEN ! summer ML depth + temp
+!                pt(k,j,i) = -1.40 + 273.15
 !             ELSE
 !                pt(k,j,i) = 273.15                                       & 
 !                     - (2.41e+1)                                           &
@@ -159,15 +159,30 @@
                         - (2.58e-9)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)             &
                         - (3.60e-12)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)
                 ENDIF
-!!!! Canadian Basin !!!!
-!                IF(abs(zu(k)).le.25.0) THEN
-!                   sa(k,j,i) = 27.0
-!                ELSE
-!                   sa(k,j,i) = 22.36 - 0.3*zu(k) - (3.83e-3)*zu(k)*zu(k)      &
-!                        - (2.54e-5)*zu(k)*zu(k)*zu(k)                         &
-!                        - (8.53e-8)*zu(k)*zu(k)*zu(k)*zu(k)                   &
-!                        - (1.18e-10)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)
-!                ENDIF
+!!!! Canadian Basin - DJF WINTER SALT PROFILE 75N 221E - Erin Thomas (ethomas@lanl.gov) !!!!
+!             IF (abs(zu(k)).le.28.0) THEN ! winter salt mixed layer
+!                sa(k,j,i) = 27.0
+!             ELSE
+!                sa(k,j,i) = - (-3.22e+1)                                   &
+!                     - (-6.80e-1)*zu(k)                                  &
+!                     - (-2.84e-2)*zu(k)*zu(k)                              &
+!                     - (-4.90e-4)*zu(k)*zu(k)*zu(k)                       &
+!                     - (-4.30e-6)*zu(k)*zu(k)*zu(k)*zu(k)                 &
+!                     - (-1.89e-8)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)          &
+!                     - (-3.34e-11)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)
+!             ENDIF
+!!!! Canadian Basin JJA SUMMER TEMP Profile 75N 221E- Erin Thomas (ethomas@lanl.gov)!!!!
+!             IF (abs(zu(k)).le.32.0) THEN ! summer salt mixed layer 
+!                sa(k,j,i) = 28.2
+!             ELSE
+!                sa(k,j,i) = - (-4.63e+1)                                           &
+!                     - (-1.76)*zu(k)                                      &
+!                     - (-6.27e-2)*zu(k)*zu(k)                              &
+!                     - (-1.05e-3)*zu(k)*zu(k)*zu(k)                       &
+!                     - (-9.17e-6)*zu(k)*zu(k)*zu(k)*zu(k)                 &
+!                     - (-4.06e-8)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)          &
+!                     - (-7.20e-11)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)
+!             ENDIF
              ENDDO
           ENDDO
        ENDDO
