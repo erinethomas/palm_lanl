@@ -86,16 +86,16 @@
        DO  j = nysg, nyng
           DO k = nzb, nzt
 !!!! Eurasian Basin !!!!
-             IF (abs(zu(k)).le.15.0) THEN
-                pt(k,j,i) = -0.27 + 273.15
-             ELSE
-                pt(k,j,i) = 273.15 - 1.91 - 0.2*zu(k)                   &
-                     - (4.05e-3)*zu(k)*zu(k)                             &
-                     - (3.85e-5)*zu(k)*zu(k)*zu(k)                       &
-                     - (2.10e-7)*zu(k)*zu(k)*zu(k)*zu(k)                 &
-                     - (6.47e-10)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)           &
-                     - (8.74e-13)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)
-             ENDIF
+!             IF (abs(zu(k)).le.15.0) THEN
+!                pt(k,j,i) = -0.27 + 273.15
+!             ELSE
+!                pt(k,j,i) = 273.15 - 1.91 - 0.2*zu(k)                   &
+!                     - (4.05e-3)*zu(k)*zu(k)                             &
+!                     - (3.85e-5)*zu(k)*zu(k)*zu(k)                       &
+!                     - (2.10e-7)*zu(k)*zu(k)*zu(k)*zu(k)                 &
+!                     - (6.47e-10)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)           &
+!                     - (8.74e-13)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)
+!             ENDIF
 !!!! Canadian Basin - DJF WINTER TEMP PROFILE 75N 221E - Erin Thomas (ethomas@lanl.gov) !!!!
 !             IF (abs(zu(k)).le.27.0) THEN ! winter ML depth + temp
 !                pt(k,j,i) = -1.44 + 273.15
@@ -110,18 +110,18 @@
 !                     - (-3.91e-11)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)
 !             ENDIF
 !!!! Canadian Basin JJA SUMMER TEMP Profile 75N 221E- Erin Thomas (ethomas@lanl.gov)!!!!
-!             IF (abs(zu(k)).le.38.0) THEN ! summer ML depth + temp
-!                pt(k,j,i) = -1.40 + 273.15
-!             ELSE
-!                pt(k,j,i) = 273.15                                       & 
-!                     - (2.41e+1)                                           &
-!                     - (1.27)*zu(k)                                      &
-!                     - (2.54e-2)*zu(k)*zu(k)                              &
-!                     - (2.43e-4)*zu(k)*zu(k)*zu(k)                       &
-!                     - (1.14e-6)*zu(k)*zu(k)*zu(k)*zu(k)                 &
-!                     - (2.14e-9)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)          &
-!                     - (2.19e-13)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)
-!             ENDIF
+             IF (abs(zu(k)).le.38.0) THEN ! summer ML depth + temp
+                pt(k,j,i) = -1.40 + 273.15
+             ELSE
+                pt(k,j,i) = 273.15                                       & 
+                     - (2.41e+1)                                           &
+                     - (1.27)*zu(k)                                      &
+                     - (2.54e-2)*zu(k)*zu(k)                              &
+                     - (2.43e-4)*zu(k)*zu(k)*zu(k)                       &
+                     - (1.14e-6)*zu(k)*zu(k)*zu(k)*zu(k)                 &
+                     - (2.14e-9)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)          &
+                     - (2.19e-13)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)
+             ENDIF
           ENDDO
           u(:,j,i)  = 0.0_wp
           v(:,j,i)  = 0.0_wp
@@ -150,15 +150,15 @@
           DO  j = nysg, nyng
              DO k = nzb, nzt
 !!!! Eurasian Basin !!!!
-                IF(abs(zu(k)).le.15.0) THEN
-                   sa(k,j,i) = 30.5
-                ELSE
-                   sa(k,j,i) = 27.3 - 0.37*zu(k) - (8.67e-3)*zu(k)*zu(k)      &
-                        - (1.09e-4)*zu(k)*zu(k)*zu(k)                         &
-                        - (7.42e-7)*zu(k)*zu(k)*zu(k)*zu(k)                   &
-                        - (2.58e-9)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)             &
-                        - (3.60e-12)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)
-                ENDIF
+!                IF(abs(zu(k)).le.15.0) THEN
+!                   sa(k,j,i) = 30.5
+!                ELSE
+!                   sa(k,j,i) = 27.3 - 0.37*zu(k) - (8.67e-3)*zu(k)*zu(k)      &
+!                        - (1.09e-4)*zu(k)*zu(k)*zu(k)                         &
+!                        - (7.42e-7)*zu(k)*zu(k)*zu(k)*zu(k)                   &
+!                        - (2.58e-9)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)             &
+!                        - (3.60e-12)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)
+!                ENDIF
 !!!! Canadian Basin - DJF WINTER SALT PROFILE 75N 221E - Erin Thomas (ethomas@lanl.gov) !!!!
 !             IF (abs(zu(k)).le.28.0) THEN ! winter salt mixed layer
 !                sa(k,j,i) = 27.0
@@ -172,17 +172,17 @@
 !                     - (-3.34e-11)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)
 !             ENDIF
 !!!! Canadian Basin JJA SUMMER TEMP Profile 75N 221E- Erin Thomas (ethomas@lanl.gov)!!!!
-!             IF (abs(zu(k)).le.32.0) THEN ! summer salt mixed layer 
-!                sa(k,j,i) = 28.2
-!             ELSE
-!                sa(k,j,i) = - (-4.63e+1)                                           &
-!                     - (-1.76)*zu(k)                                      &
-!                     - (-6.27e-2)*zu(k)*zu(k)                              &
-!                     - (-1.05e-3)*zu(k)*zu(k)*zu(k)                       &
-!                     - (-9.17e-6)*zu(k)*zu(k)*zu(k)*zu(k)                 &
-!                     - (-4.06e-8)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)          &
-!                     - (-7.20e-11)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)
-!             ENDIF
+             IF (abs(zu(k)).le.32.0) THEN ! summer salt mixed layer 
+                sa(k,j,i) = 28.2
+             ELSE
+                sa(k,j,i) = - (-4.63e+1)                                           &
+                     - (-1.76)*zu(k)                                      &
+                     - (-6.27e-2)*zu(k)*zu(k)                              &
+                     - (-1.05e-3)*zu(k)*zu(k)*zu(k)                       &
+                     - (-9.17e-6)*zu(k)*zu(k)*zu(k)*zu(k)                 &
+                     - (-4.06e-8)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)          &
+                     - (-7.20e-11)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)
+             ENDIF
              ENDDO
           ENDDO
        ENDDO
