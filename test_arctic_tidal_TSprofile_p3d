@@ -5,7 +5,7 @@
         ocean				= .T.,
         reference_state			= 'single_value',
 
-        initializing_actions = 'set_constant_profiles',
+        initializing_actions = 'by_user',
         
         pt_surface                 = 293.0,
         pt_vertical_gradient       = 1.0,
