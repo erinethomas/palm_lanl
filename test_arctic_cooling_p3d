@@ -24,7 +24,7 @@
         top_momentumflux_u 		= 0.0,
         top_momentumflux_v 		= 0.0,
 
-        top_heatflux 			= -10.0,
+        top_heatflux 			= -1.18540e-5,
         surface_heatflux           = 9999999.9,
 
         top_salinityflux 		= 0.0,
