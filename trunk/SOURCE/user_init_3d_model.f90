@@ -85,17 +85,6 @@
     DO  i = nxlg, nxrg
        DO  j = nysg, nyng
           DO k = nzb, nzt
-!!!! Eurasian Basin !!!!
-!             IF (abs(zu(k)).le.15.0) THEN
-!                pt(k,j,i) = -0.27 + 273.15
-!             ELSE
-!                pt(k,j,i) = 273.15 - 1.91 - 0.2*zu(k)                   &
-!                     - (4.05e-3)*zu(k)*zu(k)                             &
-!                     - (3.85e-5)*zu(k)*zu(k)*zu(k)                       &
-!                     - (2.10e-7)*zu(k)*zu(k)*zu(k)*zu(k)                 &
-!                     - (6.47e-10)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)           &
-!                     - (8.74e-13)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)
-!             ENDIF
 !!!! Canadian Basin - DJF WINTER TEMP PROFILE 75N 221E - Erin Thomas (ethomas@lanl.gov) !!!!
              IF (abs(zu(k)).le.33.0) THEN ! winter ML depth + temp
                 pt(k,j,i) = -1.47 + 273.15
@@ -131,6 +120,39 @@
           v(:,j,i)  = 0.0_wp
        ENDDO
     ENDDO
+! FIX pt_init 
+    DO k = nzb, nzt
+!!!! Canadian Basin - DJF WINTER TEMP PROFILE 75N 221E - Erin Thomas (ethomas@lanl.gov) !!!!
+       IF (abs(zu(k)).le.33.0) THEN ! winter ML depth + temp
+          pt_init(k) = -1.47 + 273.15
+       ELSEIF (abs(zu(k)).ge.170.0) THEN ! winter sponge layer  temp
+          pt_init(k) = -1.40 + 273.15
+       ELSE
+          pt_init(k) = 273.15                                       & 
+                     - (5.8977)                                           &
+                     - (0.19662)*zu(k)                                      &
+                     - (0.0018831)*zu(k)*zu(k)                              &
+                     - (-4.4247e-06)*zu(k)*zu(k)*zu(k)                       &
+                     - (-1.5372e-07)*zu(k)*zu(k)*zu(k)*zu(k)                 &
+                     - (-7.979e-10)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)          &
+                     - (-1.3313e-12)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)
+       ENDIF
+!!!! Canadian Basin JJA SUMMER TEMP Profile 75N 221E- Erin Thomas (ethomas@lanl.gov)!!!!
+!      IF (abs(zu(k)).le.38.0) THEN ! summer ML depth + temp
+!          pt_init(k) = -1.39 + 273.15
+!      ELSEIF (abs(zu(k)).ge.170.0) THEN ! summer sponge layer  temp
+!         pt_init(k) = -1.43 + 273.15
+!      ELSE
+!         pt_init(k) = 273.15                                       & 
+!                     - (24.687)                                           &
+!                     - (1.3353)*zu(k)                                      &
+!                     - (0.028089)*zu(k)*zu(k)                              &
+!                     - (2.9655e-04)*zu(k)*zu(k)*zu(k)                       &
+!                     - (1.6961e-06)*zu(k)*zu(k)*zu(k)*zu(k)                 &
+!                     - (5.0316e-09)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)          &
+!                     - (6.0794e-12)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)
+!      ENDIF
+    ENDDO
 !
 !--       Mask topography
     u = MERGE( u, 0.0_wp, BTEST( wall_flags_0, 1 ) )
@@ -153,23 +175,12 @@
        DO  i = nxlg, nxrg
           DO  j = nysg, nyng
              DO k = nzb, nzt
-!!!! Eurasian Basin !!!!
-!                IF(abs(zu(k)).le.15.0) THEN
-!                   sa(k,j,i) = 30.5
-!                ELSE
-!                   sa(k,j,i) = 27.3 - 0.37*zu(k) - (8.67e-3)*zu(k)*zu(k)      &
-!                        - (1.09e-4)*zu(k)*zu(k)*zu(k)                         &
-!                        - (7.42e-7)*zu(k)*zu(k)*zu(k)*zu(k)                   &
-!                        - (2.58e-9)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)             &
-!                        - (3.60e-12)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)
-!                ENDIF
 !!!! Canadian Basin - DJF WINTER SALT PROFILE 75N 221E - Erin Thomas (ethomas@lanl.gov) !!!!
              IF (abs(zu(k)).le.30.0) THEN ! winter salt mixed layer
                 sa(k,j,i) = 27.04
              ELSEIF (abs(zu(k)).ge.170.0) THEN ! winter sponge layer  temp
                 sa(k,j,i) = 32.72
              ELSE
-                     
                 sa(k,j,i) = 22.845                                   &
                      - (0.10595)*zu(k)                                  &
                      - (-0.0026536)*zu(k)*zu(k)                              &
@@ -195,6 +206,37 @@
              ENDDO
           ENDDO
        ENDDO
+! FIX sa_init
+       DO k = nzb, nzt
+!!!! Canadian Basin - DJF WINTER SALT PROFILE 75N 221E - Erin Thomas (ethomas@lanl.gov) !!!!
+          IF (abs(zu(k)).le.30.0) THEN ! winter salt mixed layer
+             sa_init(k) = 27.04
+          ELSEIF (abs(zu(k)).ge.170.0) THEN ! winter sponge layer  temp
+             sa_init(k) = 32.72
+          ELSE
+             sa_init(k) = 22.845                                   &
+                  - (0.10595)*zu(k)                                  &
+                  - (-0.0026536)*zu(k)*zu(k)                              &
+                  - (-6.5508e-05)*zu(k)*zu(k)*zu(k)                       &
+                  - (-5.5721e-07)*zu(k)*zu(k)*zu(k)*zu(k)                 &
+                  - (-2.142e-09)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)          &
+                  - (-3.1388e-12)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)
+          ENDIF
+!!!! Canadian Basin JJA SUMMER TEMP Profile 75N 221E- Erin Thomas (ethomas@lanl.gov)!!!!
+!         IF (abs(zu(k)).le.35.0) THEN ! summer salt mixed layer 
+!             sa_init(k) = 28.11
+!         ELSEIF (abs(zu(k)).ge.170.0) THEN ! summer sponge layer  temp
+!             sa_init(k) = 32.78
+!         ELSE
+!             sa_init(k) = 18.802                                          &
+!                 - (0.40328)*zu(k)                                      &
+!                 - (0.0046778)*zu(k)*zu(k)                              &
+!                 - (2.1635e-05)*zu(k)*zu(k)*zu(k)                       &
+!                 - (-9.9477e-09)*zu(k)*zu(k)*zu(k)*zu(k)                 &
+!                 - (-3.8883e-10)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)          &
+!                 - (-8.7885e-13)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)*zu(k)
+!         ENDIF
+       ENDDO        
     ENDIF
 
     IF ( passive_scalar )  THEN
