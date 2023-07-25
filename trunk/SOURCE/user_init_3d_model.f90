@@ -88,8 +88,6 @@
 !!!! Canadian Basin - DJF WINTER TEMP PROFILE 75N 221E - Erin Thomas (ethomas@lanl.gov) !!!!
              IF (abs(zu(k)).le.33.0) THEN ! winter ML depth + temp
                 pt(k,j,i) = -1.47 + 273.15
-             ELSEIF (abs(zu(k)).ge.170.0) THEN ! winter sponge layer  temp
-                pt(k,j,i) = -1.40 + 273.15
              ELSE
                 pt(k,j,i) = 273.15                                       & 
                      - (5.8977)                                           &
@@ -103,8 +101,6 @@
 !!!! Canadian Basin JJA SUMMER TEMP Profile 75N 221E- Erin Thomas (ethomas@lanl.gov)!!!!
 !             IF (abs(zu(k)).le.38.0) THEN ! summer ML depth + temp
 !                pt(k,j,i) = -1.39 + 273.15
-!             ELSEIF (abs(zu(k)).ge.170.0) THEN ! summer sponge layer  temp
-!                pt(k,j,i) = -1.43 + 273.15
 !             ELSE
 !                pt(k,j,i) = 273.15                                       & 
 !                     - (24.687)                                           &
@@ -125,8 +121,6 @@
 !!!! Canadian Basin - DJF WINTER TEMP PROFILE 75N 221E - Erin Thomas (ethomas@lanl.gov) !!!!
        IF (abs(zu(k)).le.33.0) THEN ! winter ML depth + temp
           pt_init(k) = -1.47 + 273.15
-       ELSEIF (abs(zu(k)).ge.170.0) THEN ! winter sponge layer  temp
-          pt_init(k) = -1.40 + 273.15
        ELSE
           pt_init(k) = 273.15                                       & 
                      - (5.8977)                                           &
@@ -140,8 +134,6 @@
 !!!! Canadian Basin JJA SUMMER TEMP Profile 75N 221E- Erin Thomas (ethomas@lanl.gov)!!!!
 !      IF (abs(zu(k)).le.38.0) THEN ! summer ML depth + temp
 !          pt_init(k) = -1.39 + 273.15
-!      ELSEIF (abs(zu(k)).ge.170.0) THEN ! summer sponge layer  temp
-!         pt_init(k) = -1.43 + 273.15
 !      ELSE
 !         pt_init(k) = 273.15                                       & 
 !                     - (24.687)                                           &
@@ -178,8 +170,6 @@
 !!!! Canadian Basin - DJF WINTER SALT PROFILE 75N 221E - Erin Thomas (ethomas@lanl.gov) !!!!
              IF (abs(zu(k)).le.30.0) THEN ! winter salt mixed layer
                 sa(k,j,i) = 27.04
-             ELSEIF (abs(zu(k)).ge.170.0) THEN ! winter sponge layer  temp
-                sa(k,j,i) = 32.72
              ELSE
                 sa(k,j,i) = 22.845                                   &
                      - (0.10595)*zu(k)                                  &
@@ -192,8 +182,6 @@
 !!!! Canadian Basin JJA SUMMER TEMP Profile 75N 221E- Erin Thomas (ethomas@lanl.gov)!!!!
 !             IF (abs(zu(k)).le.35.0) THEN ! summer salt mixed layer 
 !                sa(k,j,i) = 28.11
-!             ELSEIF (abs(zu(k)).ge.170.0) THEN ! summer sponge layer  temp
-!                sa(k,j,i) = 32.78
 !             ELSE
 !                sa(k,j,i) = 18.802                                          &
 !                     - (0.40328)*zu(k)                                      &
@@ -211,8 +199,6 @@
 !!!! Canadian Basin - DJF WINTER SALT PROFILE 75N 221E - Erin Thomas (ethomas@lanl.gov) !!!!
           IF (abs(zu(k)).le.30.0) THEN ! winter salt mixed layer
              sa_init(k) = 27.04
-          ELSEIF (abs(zu(k)).ge.170.0) THEN ! winter sponge layer  temp
-             sa_init(k) = 32.72
           ELSE
              sa_init(k) = 22.845                                   &
                   - (0.10595)*zu(k)                                  &
@@ -225,8 +211,6 @@
 !!!! Canadian Basin JJA SUMMER TEMP Profile 75N 221E- Erin Thomas (ethomas@lanl.gov)!!!!
 !         IF (abs(zu(k)).le.35.0) THEN ! summer salt mixed layer 
 !             sa_init(k) = 28.11
-!         ELSEIF (abs(zu(k)).ge.170.0) THEN ! summer sponge layer  temp
-!             sa_init(k) = 32.78
 !         ELSE
 !             sa_init(k) = 18.802                                          &
 !                 - (0.40328)*zu(k)                                      &
